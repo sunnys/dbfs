@@ -17,20 +17,20 @@ defmodule DBFS.Block.Validations do
 
   def validate(%{hash: hash, prev: reference} = block, prev_hash) do
     cond do
-      (reference != prev_hash) ->
-        {:error, :invalid_reference}
+      #######################################################
+      # (reference != prev_hash) ->
+      #   {:error, :invalid_reference}
 
-      ((calculated = Crypto.hash(block)) != hash) ->
-        Logger.error("Hashes don't match")
-        Logger.error("Passed:     "  <> inspect(hash))
-        Logger.error("Calculated: "  <> inspect(calculated))
-        Logger.error("Full Block:\n" <> inspect(block))
+      # ((calculated = Crypto.hash(block)) != hash) ->
+      #   Logger.error("Hashes don't match")
+      #   Logger.error("Passed:     "  <> inspect(hash))
+      #   Logger.error("Calculated: "  <> inspect(calculated))
+      #   Logger.error("Full Block:\n" <> inspect(block))
+      #   {:error, :invalid_hash}
 
-        {:error, :invalid_hash}
-
-      (Crypto.verify(block) != :ok) ->
-        {:error, :invalid_signature}
-
+      # (Crypto.verify(block) != :ok) ->
+      #   {:error, :invalid_signature}
+      ##############################################################
       true ->
         :ok
     end

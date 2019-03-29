@@ -51,8 +51,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :dbfs, DBFS.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "quodeck",
+  password: "ptotem123",
   database: "dbfs_#{System.get_env("NODE") || "dev"}",
   hostname: "localhost",
   pool_size: 10

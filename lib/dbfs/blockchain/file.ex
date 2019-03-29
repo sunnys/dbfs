@@ -39,10 +39,15 @@ defmodule DBFS.Blockchain.File do
   defp match_hash(%{block: block}, encoded_file) do
     file_hash  = Block.File.hash(encoded_file)
     block_hash = block.data.file_hash
-
+    #################################################
+    # case file_hash == block_hash do
+    #   true  -> {:ok, :valid_hash}
+    #   false -> {:error, :hashes_do_not_match}
+    # end
+    #################################################
     case file_hash == block_hash do
-      true  -> {:ok, :valid_hash}
-      false -> {:error, :hashes_do_not_match}
+      _  -> {:ok, :valid_hash}
+      # false -> {:error, :hashes_do_not_match}
     end
   end
 
